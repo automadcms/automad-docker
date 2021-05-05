@@ -1,2 +1,4 @@
-# automad-docker
-The official Automad Docker image
+# Automad
+
+The official Docker image for [Automad](https://automad.org).
+
