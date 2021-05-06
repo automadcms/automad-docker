@@ -1,13 +1,15 @@
 # Automad
 
-The official Docker image for [Automad](https://automad.org).
+The official Docker image for [Automad](https://automad.org) including **Nginx** and **PHP 8**.
 
 ## Using this Image
 
-The first time you run this image, a new user account for the Automad dashboard will be created automatically. The account details are displayed in the terminal and therefore the image shouldn't run in detached mode.
+You can create a container called `mysite` and start it by using the following command:
 
-	docker run -p 80:80 automad/automad
+	docker run -dp 80:80 --name mysite automad/automad
 
-After the first run you can use the following command to run the image in detached mode.
+A new user account for the Automad dashboard will be created automatically. The account details will be logged by the running container. You can show these logs using the following command:
 
-	docker run -dp 80:80 automad/automad
+	docker logs mysite
+
+Your can now navigate to [localhost](http://localhost) to view your new site.
