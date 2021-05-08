@@ -1,4 +1,4 @@
-title: Home
+title: Hello
 
 -
 
@@ -8,8 +8,8 @@ title: Home
     {
       "type": "paragraph",
       "data": {
-        "text": "Welcom to Automad, please sign in <a href=\"/dashboard\">here</a>.",
-        "large": false,
+        "text": "Welcome to Automad, please sign in <a href=\"/dashboard\">here</a>.",
+        "large": true,
         "alignment": "left"
       }
     }
