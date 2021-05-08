@@ -1,0 +1,18 @@
+title: Home
+
+-
+
++main: {
+  "time": 1620469852011,
+  "blocks": [
+    {
+      "type": "paragraph",
+      "data": {
+        "text": "Welcom to Automad, please sign in <a href=\"/dashboard\">here</a>.",
+        "large": false,
+        "alignment": "left"
+      }
+    }
+  ],
+  "version": "2.20.2"
+}

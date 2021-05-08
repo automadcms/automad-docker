@@ -1,0 +1,5 @@
+sitename: My Site 
+
+-
+
+theme: standard/light
