@@ -5,6 +5,10 @@ LABEL maintainer="Marc Anton Dahmen <https://marcdahmen.de>"
 RUN apk update && \
 	apk add --no-cache nginx supervisor
 
+RUN mkdir /var/lib/nginx/tmp/client_body
+RUN chown -R www-data:www-data /var/lib/nginx
+RUN chmod -R 755 /var/lib/nginx
+
 ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
 
 RUN chmod +x /usr/local/bin/install-php-extensions && sync && \
