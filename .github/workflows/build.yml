@@ -20,6 +20,7 @@ jobs:
         id: getDays
         run: |
           days=$(curl -s https://api.github.com/repos/marcantondahmen/automad/releases/latest | jq -r "((now - (.published_at | fromdateiso8601)) / (60 * 60 * 24) | trunc)")
+          echo "$days since the latest release was published"
           echo "::set-output name=days::$days"
   build:
     runs-on: ubuntu-latest
