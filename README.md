@@ -2,6 +2,8 @@
 
 The official Docker image for [Automad](https://automad.org) including **Nginx** and **PHP 8**.
 
+[![Build Docker Image](https://github.com/marcantondahmen/automad-docker/actions/workflows/build.yml/badge.svg?branch=master&event=schedule)](https://github.com/marcantondahmen/automad-docker/actions/workflows/build.yml)
+
 ## Using this Image
 
 You can create a container called `mysite` and start it by using the following command:
