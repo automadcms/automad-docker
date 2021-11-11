@@ -17,12 +17,12 @@ jobs:
       tag: ${{ steps.release.outputs.tag }}
       days: ${{ steps.release.outputs.days }}
     steps:
-      - name: Get number of days since latest release
+      - name: Get release info
         id: release
         run: |
           tag=$(curl -s https://api.github.com/repos/marcantondahmen/automad/releases/latest | jq -r ".tag_name")
           days=$(curl -s https://api.github.com/repos/marcantondahmen/automad/releases/latest | jq -r "((now - (.published_at | fromdateiso8601)) / (60 * 60 * 24) | trunc)")
-          echo "$days since the latest release $tag was published"
+          echo "$days days since the latest release with tag $tag was published"
           echo "::set-output name=tag::$tag"
           echo "::set-output name=days::$days"
   build:
@@ -30,6 +30,10 @@ jobs:
     needs: check
     if: ${{ needs.check.outputs.days == '0' || github.event.inputs.forceBuild == 'yes' }}
     steps:
+      - name: Release Info
+        run: |
+          echo "Days since latest release was published: ${{ needs.check.outputs.days }}"
+          echo "Latest release tag: ${{ needs.check.outputs.tag }}"
       - name: Checkout
         uses: actions/checkout@v2
       - name: Login to DockerHub
