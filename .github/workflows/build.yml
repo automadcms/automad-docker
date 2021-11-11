@@ -14,10 +14,11 @@ jobs:
   check:
     runs-on: ubuntu-latest
     outputs:
-      days: ${{ steps.getDays.outputs.days }}
+      tag: ${{ steps.release.outputs.tag }}
+      days: ${{ steps.release.outputs.days }}
     steps:
       - name: Get number of days since latest release
-        id: getDays
+        id: release
         run: |
           tag=$(curl -s https://api.github.com/repos/marcantondahmen/automad/releases/latest | jq -r ".tag_name")
           days=$(curl -s https://api.github.com/repos/marcantondahmen/automad/releases/latest | jq -r "((now - (.published_at | fromdateiso8601)) / (60 * 60 * 24) | trunc)")
