@@ -9,9 +9,10 @@ The official Docker image for [Automad](https://automad.org) including **Nginx**
 You can create a container called `mysite` and start it by using the following command:
 
 ```bash
-docker run -dp 80:80 --name mysite automad/automad
+docker run -dp 80:80 -v ./app:/app --name mysite automad/automad
 ```
 
+This will essentially make your site available at port 80 and mount a directory called `/app` for data persistence.
 A new user account for the Automad dashboard will be created automatically. The account details will be logged by the running container. You can show these logs using the following command:
 
 ```bash
@@ -20,10 +21,9 @@ docker logs mysite
 
 Your can now navigate to [localhost](http://localhost) to view your new site.
 
-### Data Persistence
+### Docker Compose
 
-In order to persist data when shutting down a container, it is possible to mount the `/app` volume that contains the entire application and its data.
-The following `docker-compose.yml` file can be used to bind the `/app` volume to a local directory called on the host machine in the current directory:
+Alternatively you can also use `docker compose` with the following configuration:
 
 ```yaml
 version: "3"
@@ -37,6 +37,8 @@ services:
       - ./app:/app
 ```
 
-Run the following command in order to start the container:
+And then in order to start the container:
 
-    docker compose up -d
+```bash
+docker compose up -d
+```
