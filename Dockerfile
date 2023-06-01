@@ -16,10 +16,6 @@ RUN chmod +x /usr/local/bin/install-php-extensions && sync && \
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer 
 
-RUN composer create-project --no-scripts automad/automad /app
-RUN chown -R www-data:www-data /app
-RUN chmod -R 755 /app
-
 COPY etc/php.ini /usr/local/etc/php/php.ini
 COPY etc/nginx.conf /etc/nginx/nginx.conf
 COPY etc/www.conf /etc/php/8.0/php-fpm.d/www.conf
