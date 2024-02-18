@@ -1,7 +1,8 @@
 #!/bin/sh
 
-if [ ! -f config/accounts.php ]; then
-	composer create-project --no-install automad/automad /app
+if [ ! -d /app/automad ]; then
+	composer create-project --no-install --prefer-dist automad/dist /app $AUTOMAD_VERSION
+	chown -R www-data:www-data /tmp/automad
 	chown -R www-data:www-data /app
 	chmod -R 755 /app
 fi

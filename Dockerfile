@@ -1,6 +1,9 @@
-FROM php:8.1-fpm-alpine
+FROM php:8.3-fpm-alpine
 
 LABEL maintainer="Marc Anton Dahmen <https://marcdahmen.de>"
+
+ARG version
+ENV AUTOMAD_VERSION=$version
 
 RUN apk update && \
 	apk add --no-cache nginx supervisor
@@ -14,13 +17,13 @@ ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/do
 RUN chmod +x /usr/local/bin/install-php-extensions && sync && \
 	install-php-extensions zip curl gd
 
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer 
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
 
-COPY etc/php.ini /usr/local/etc/php/php.ini
-COPY etc/nginx.conf /etc/nginx/nginx.conf
-COPY etc/www.conf /etc/php/8.0/php-fpm.d/www.conf
-COPY etc/automad.conf /etc/nginx/sites-enabled/automad.conf
-COPY etc/supervisord.conf /etc/supervisord.conf
+COPY etc/php.ini /usr/local/etc/php/
+COPY etc/www.conf /usr/local/etc/php-fpm.d/
+COPY etc/nginx.conf /etc/nginx/
+COPY etc/automad.conf /etc/nginx/sites-enabled/
+COPY etc/supervisord.conf /etc/
 
 COPY init.sh /init.sh
 RUN chmod +x /init.sh

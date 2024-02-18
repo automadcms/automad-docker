@@ -4,6 +4,14 @@ The official Docker image for [Automad](https://automad.org) including **Nginx**
 
 [![Build Docker Image](https://github.com/marcantondahmen/automad-docker/actions/workflows/build.yml/badge.svg?branch=master&event=schedule)](https://github.com/marcantondahmen/automad-docker/actions/workflows/build.yml)
 
+## Building
+
+In order to build this image with a specific version, run the following command:
+
+```bash
+docker build --build-arg version=v2.x-dev -t automad/automad:v2.x-dev .
+```
+
 ## Using this Image
 
 You can create a container called `mysite` and start it by using the following command:
