@@ -1,4 +1,4 @@
-FROM php:8.0-fpm-alpine
+FROM php:8.3-fpm-alpine
 
 LABEL maintainer="Marc Anton Dahmen <https://marcdahmen.de>"
 
