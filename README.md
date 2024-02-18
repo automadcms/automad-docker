@@ -1,8 +1,6 @@
 # Automad
 
-The official Docker image for [Automad](https://automad.org) including **Nginx** and **PHP 8.1**.
-
-[![Build Docker Image](https://github.com/marcantondahmen/automad-docker/actions/workflows/build.yml/badge.svg?branch=master&event=schedule)](https://github.com/marcantondahmen/automad-docker/actions/workflows/build.yml)
+The official Docker image for [Automad](https://automad.org) including **Nginx** and **PHP**.
 
 ## Building
 
