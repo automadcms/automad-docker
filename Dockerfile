@@ -15,7 +15,7 @@ RUN chmod -R 755 /var/lib/nginx
 ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
 
 RUN chmod +x /usr/local/bin/install-php-extensions && sync && \
-	install-php-extensions zip curl gd
+	install-php-extensions zip curl gd intl
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
 
