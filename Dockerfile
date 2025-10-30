@@ -6,7 +6,7 @@ ARG version
 ENV AUTOMAD_VERSION=$version
 
 RUN apk update && \
-	apk add --no-cache nginx supervisor
+	apk add --no-cache nginx supervisor shadow
 
 RUN mkdir /var/lib/nginx/tmp/client_body
 RUN chown -R www-data:www-data /var/lib/nginx
